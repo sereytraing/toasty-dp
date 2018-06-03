@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class ToastyView: UIView {
+/*public class ToastyView: UIView {
 
     static var toastyView = ToastyView()
     static var style = ToastyStyle()
@@ -185,6 +185,7 @@ public class ToastyView: UIView {
             ToastyView.style = ToastyStyle()
         }
     }
+    
 }
 
 public struct ToastyStyle {
@@ -199,4 +200,5 @@ public struct ToastyStyle {
     public var lineBreakMode: NSLineBreakMode = .byTruncatingTail
     public var messageNumberOfLines = 0
     public var animationDuration = ToastyView.LENGHT_SHORT
-}
+}*/
+

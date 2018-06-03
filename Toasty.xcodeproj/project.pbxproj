@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F59906820C3C8FF00981ACA /* Toasty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F59906720C3C8FF00981ACA /* Toasty.swift */; };
 		0FB333C520040EBD00833560 /* Toasty.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FB333C320040EBD00833560 /* Toasty.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0FB333CC20040F0700833560 /* ToastyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB333CB20040F0700833560 /* ToastyView.swift */; };
 		0FEA08822025AF6200B037E5 /* ToastyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEA08812025AF6200B037E5 /* ToastyTests.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F59906720C3C8FF00981ACA /* Toasty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toasty.swift; sourceTree = "<group>"; };
 		0FB333C020040EBD00833560 /* Toasty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Toasty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FB333C320040EBD00833560 /* Toasty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Toasty.h; sourceTree = "<group>"; };
 		0FB333C420040EBD00833560 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				0FB333C320040EBD00833560 /* Toasty.h */,
 				0FB333C420040EBD00833560 /* Info.plist */,
 				BF28BC06202777F60049815F /* Assets.xcassets */,
+				0F59906720C3C8FF00981ACA /* Toasty.swift */,
 			);
 			path = Toasty;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FB333CC20040F0700833560 /* ToastyView.swift in Sources */,
+				0F59906820C3C8FF00981ACA /* Toasty.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
