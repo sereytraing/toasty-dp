@@ -32,6 +32,39 @@ public class Toasty {
         self.shared.enableToast(viewController)
     }
     
+    public static func showToast(viewController: UIViewController, withMessage message: String?, andImage image: UIImage?, toastyStyle: ToastyStyle? = nil, length: Double? = nil, isDebug: UIColor? = nil) {
+        var imageView: UIImageView?
+        self.shared.checkToastyStyle(style: toastyStyle, length: length, isDebug: isDebug)
+        
+        self.shared.initToastyView(forToast: self.shared.MESSAGE_AND_IMAGE, viewController)
+        
+        if let image = image {
+            imageView = self.shared.createImage(image, forToast: self.shared.SIMPLE_MESSAGE)
+        } else {
+            //imageView = self.shared.createImage(NO_IMAGE, forToast: SIMPLE_MESSAGE)
+            
+        }
+        
+        if let message = message {
+            self.shared.createMessage(message, forToast: self.shared.MESSAGE_AND_IMAGE, with: imageView)
+        } else {
+            self.shared.createMessage("", forToast: self.shared.MESSAGE_AND_IMAGE, with: imageView)
+        }
+        
+        self.shared.enableToast(viewController)
+    }
+    
+    public static func showToast(viewController: UIViewController, withSimpleImage image: UIImage?, toastyStyle: ToastyStyle? = nil, length: Double? = nil, isDebug: UIColor? = nil) {
+        self.shared.checkToastyStyle(style: toastyStyle, length: length, isDebug: isDebug)
+        self.shared.initToastyView(forToast: self.shared.SIMPLE_IMAGE, viewController)
+        if let image = image {
+            self.shared.createImage(image, forToast: self.shared.SIMPLE_IMAGE)
+        } else {
+            //self.shared.createImage(NO_IMAGE, forToast: self.shared.SIMPLE_IMAGE)
+        }
+        self.shared.enableToast(viewController)
+    }
+    
     private func initToastyView(forToast type: Int, _ viewController: UIViewController?) {
         let screenSize: CGRect = UIScreen.main.bounds
         self.checkIsActive(view: self.toastyView)
@@ -72,6 +105,28 @@ public class Toasty {
             NSLayoutConstraint(item: ml, attribute: .leftMargin, relatedBy: .equal, toItem: imageView, attribute: .rightMargin, multiplier: 1, constant: 20).isActive = true
             NSLayoutConstraint(item: ml, attribute: .centerY, relatedBy: .equal, toItem: toastyView, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
         }
+    }
+    
+    
+    func createImage(_ image: UIImage, forToast type: Int) -> UIImageView {
+        let iv = UIImageView(image: image)
+        iv.contentMode = .scaleAspectFit
+        iv.frame = CGRect(x: 10.0, y: 10.0, width: 80.0, height: 80.0)
+        toastyView.addSubview(iv)
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        
+        if (type == SIMPLE_MESSAGE) {
+            NSLayoutConstraint(item: iv, attribute: .leftMargin, relatedBy: .equal, toItem: toastyView, attribute: .leftMargin, multiplier: 1, constant: 10).isActive = true
+            NSLayoutConstraint(item: iv, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: toastyView, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 0).isActive = true
+            NSLayoutConstraint(item: iv, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 80).isActive = true
+            NSLayoutConstraint(item: iv, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 80).isActive = true
+        } else {
+            NSLayoutConstraint(item: iv, attribute: .centerX, relatedBy: .equal, toItem: toastyView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+            NSLayoutConstraint(item: iv, attribute: .centerY, relatedBy: .equal, toItem: toastyView, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
+            NSLayoutConstraint(item: iv, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 80).isActive = true
+            NSLayoutConstraint(item: iv, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 80).isActive = true
+        }
+        return iv
     }
     
     private func checkIsActive(view: UIView) {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-/*public class ToastyView: UIView {
+public class ToastyView: UIView {
 
     static var toastyView = ToastyView()
     static var style = ToastyStyle()
@@ -188,17 +188,4 @@ import UIKit
     
 }
 
-public struct ToastyStyle {
-    public init() {}
-    
-    //ajoutez ce que vous voulez
-    public var cornerRadius: CGFloat = 10.0
-    public var backgroundColor: UIColor = ToastyView.DEBUG_NO
-    public var messageColor: UIColor = .white
-    public var messageBackgroundColor: UIColor = .clear
-    public var messageAlignment: NSTextAlignment = .center
-    public var lineBreakMode: NSLineBreakMode = .byTruncatingTail
-    public var messageNumberOfLines = 0
-    public var animationDuration = ToastyView.LENGHT_SHORT
-}*/
 
