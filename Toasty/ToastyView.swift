@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class ToastyView: UIView {
+/*public class ToastyView: UIView {
 
     static var toastyView = ToastyView()
     static var style = ToastyStyle()
@@ -187,5 +187,5 @@ public class ToastyView: UIView {
     }
     
 }
-
+*/
 

@@ -12,7 +12,11 @@ public class Toasty {
     
     public static let shared = Toasty()
     var toastyView = UIView()
-    var style = ToastyStyle()
+    let toastyStyleBuilder = ToastyStyleBuilder { builder in
+        builder.animationDuration = 10.0
+    }
+    
+    lazy var style: ToastyStyle = ToastyStyle(builder: toastyStyleBuilder)
     
     let LENGHT_SHORT = 1.0
     let LENGHT_LONG = 5.0
@@ -181,7 +185,7 @@ public class Toasty {
             }
             self.style = userStyle
         } else {
-            self.style = ToastyStyle()
+            self.style = ToastyStyle(builder: self.toastyStyleBuilder)
         }
     }
     //////////////////
@@ -189,18 +193,4 @@ public class Toasty {
     public func killToast() {
         self.toastyView.removeFromSuperview()
     }
-}
-
-public struct ToastyStyle {
-    public init() {}
-    
-    //ajoutez ce que vous voulez
-    public var cornerRadius: CGFloat = 10.0
-    public var backgroundColor: UIColor = UIColor.red
-    public var messageColor: UIColor = .blue
-    public var messageBackgroundColor: UIColor = .clear
-    public var messageAlignment: NSTextAlignment = .center
-    public var lineBreakMode: NSLineBreakMode = .byTruncatingTail
-    public var messageNumberOfLines = 0
-    public var animationDuration = 3.0
 }
