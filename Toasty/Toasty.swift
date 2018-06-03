@@ -11,6 +11,8 @@ import UIKit
 public class Toasty {
     
     public static let shared = Toasty()
+    var observerInstance = Observer()
+    var toastyObserver = ToastyObserver()
     var toastyView = UIView()
     let toastyStyleBuilder = ToastyStyleBuilder { builder in
         builder.animationDuration = 10.0
@@ -148,8 +150,10 @@ public class Toasty {
     
     // MARK: Animations
     private func show() {
+        self.toastyObserver.observer = observerInstance
         UIView.animate(withDuration: 0.33, animations: {
             self.toastyView.alpha = 1.0
+            self.toastyObserver.isHidden = false
         })
     }
     
@@ -160,6 +164,7 @@ public class Toasty {
                 self.toastyView.alpha = 0.0
             }, completion: { _ in
                 self.toastyView.removeFromSuperview()
+                self.toastyObserver.isHidden = true
             })
         }
         

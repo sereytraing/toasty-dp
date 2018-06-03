@@ -37,13 +37,13 @@ public struct ToastyStyle {
     public var animationDuration:       Double
     
     public init(builder: ToastyStyleBuilder) {
-        self.cornerRadius = builder.cornerRadius
-        self.backgroundColor = builder.backgroundColor
-        self.messageColor = builder.messageColor
-        self.messageBackgroundColor = builder.messageBackgroundColor
-        self.messageAlignment = builder.messageAlignment
-        self.lineBreakMode = builder.lineBreakMode
-        self.messageNumberOfLines = builder.messageNumberOfLines
-        self.animationDuration = builder.animationDuration
+        self.cornerRadius               = builder.cornerRadius
+        self.backgroundColor            = builder.backgroundColor
+        self.messageColor               = builder.messageColor
+        self.messageBackgroundColor     = builder.messageBackgroundColor
+        self.messageAlignment           = builder.messageAlignment
+        self.lineBreakMode              = builder.lineBreakMode
+        self.messageNumberOfLines       = builder.messageNumberOfLines
+        self.animationDuration          = builder.animationDuration
     }
 }
