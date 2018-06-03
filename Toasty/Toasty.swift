@@ -26,11 +26,14 @@ import UIKit
         Project -> func showToast(...) in Toasty.swift
  
  - Memento: The memento pattern is used to capture the current state of an object and store it in such a manner that it can be restored at a later time without breaking the rules of encapsulation.
+        Project -> Add message in UserDefaults, save/load in Toasty.swift (useless imo)
  
  - ??? Command: The command pattern is used to express a request, including the call to be made and all of its required parameters, in a command object. The command may then be executed immediately or held for later use.
         Project -> if toasty did appear, i can kill it with the function killToasty and I roll back to the initial view ?
  
- 
+ - Strategy: The strategy pattern is used to create an interchangeable family of algorithms from which the required process is chosen at run-time.
+        No idea of use
+        Project -> in ToastyStrategy.swift, manage upper/lowercase (useless imo)
  
  */
 
@@ -93,7 +96,7 @@ public class Toasty {
         self.shared.checkToastyStyle(style: toastyStyle, length: length, isDebug: isDebug)
         self.shared.initToastyView(forToast: self.shared.SIMPLE_IMAGE, viewController)
         if let image = image {
-            self.shared.createImage(image, forToast: self.shared.SIMPLE_IMAGE)
+            _ = self.shared.createImage(image, forToast: self.shared.SIMPLE_IMAGE)
         } else {
             //self.shared.createImage(NO_IMAGE, forToast: self.shared.SIMPLE_IMAGE)
         }
