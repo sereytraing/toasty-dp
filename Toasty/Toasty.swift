@@ -8,9 +8,38 @@
 
 import UIKit
 
+/*
+ Design Pattern:
+ - Singleton : The singleton pattern ensures that only one object of a particular class is ever created. All further references to objects of the singleton class refer to the same underlying instance. There are very few applications, do not overuse this pattern!
+        Project -> var shared in Toasty.swift
+ 
+ - Builder: The builder pattern is used to create complex objects with constituent parts that must be created in the same order or using a specific algorithm. An external class controls the construction algorithm.
+        Project -> in ToastyStyle.swift
+ 
+ - Non null: Check if the variable is null
+        Project -> check with 'if let' in Toast.swift
+ 
+ - Observer: The observer pattern is used to allow an object to publish changes to its state. Other objects subscribe to be immediately notified of any changes.
+        Project -> in ToastyObserver.swift
+ 
+ - Facade: The facade pattern is used to define a simplified interface to a more complex subsystem.
+        Project -> func showToast(...) in Toasty.swift
+ 
+ - Memento: The memento pattern is used to capture the current state of an object and store it in such a manner that it can be restored at a later time without breaking the rules of encapsulation.
+ 
+ - ??? Command: The command pattern is used to express a request, including the call to be made and all of its required parameters, in a command object. The command may then be executed immediately or held for later use.
+        Project -> if toasty did appear, i can kill it with the function killToasty and I roll back to the initial view ?
+ 
+ 
+ 
+ */
+
+
+
 public class Toasty {
     
     public static let shared = Toasty()
+    let defaults = UserDefaults.standard
     var observerInstance = Observer()
     var toastyObserver = ToastyObserver()
     var toastyView = UIView()
@@ -197,5 +226,15 @@ public class Toasty {
     
     public func killToast() {
         self.toastyView.removeFromSuperview()
+    }
+    
+    //Memento
+    public func saveMessage(nameSave: String, message: String) {
+        self.defaults.set(message, forKey: nameSave)
+        self.defaults.synchronize()
+    }
+    
+    public func loadMessage(nameSave: String) -> String? {
+        return self.defaults.string(forKey: nameSave)
     }
 }
