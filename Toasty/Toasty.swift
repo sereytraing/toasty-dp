@@ -23,17 +23,13 @@ public class Toasty {
     public static func showToast(viewController: UIViewController, withSimpleMessage message: String?, toastyStyle: ToastyStyle? = nil, length: Double? = nil, isDebug: UIColor? = nil) {
         self.shared.checkToastyStyle(style: toastyStyle, length: length, isDebug: isDebug)
         
-        self.shared.initToastyView(forToast: 1, viewController)
+        self.shared.initToastyView(forToast: self.shared.SIMPLE_MESSAGE, viewController)
         if let message = message {
-            self.shared.createMessage(message, forToast:1, with: nil)
+            self.shared.createMessage(message, forToast: self.shared.SIMPLE_MESSAGE, with: nil)
         } else {
-            self.shared.createMessage("", forToast:1, with: nil)
+            self.shared.createMessage("", forToast: self.shared.SIMPLE_MESSAGE, with: nil)
         }
         self.shared.enableToast(viewController)
-    }
-    
-    public func killToast() {
-        self.toastyView.removeFromSuperview()
     }
     
     private func initToastyView(forToast type: Int, _ viewController: UIViewController?) {
@@ -88,7 +84,6 @@ public class Toasty {
     private func enableToast(_ viewController: UIViewController) {
         viewController.view.addSubview(toastyView)
         self.show()
-        //toastyView.perform(#selector(hide), with: nil, afterDelay: style.animationDuration)
         self.hide()
     }
     
@@ -100,7 +95,7 @@ public class Toasty {
     }
     
     private func hide() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + self.style.animationDuration) {
             NSObject.cancelPreviousPerformRequests(withTarget: self)
             UIView.animate(withDuration: 0.33, animations: {
                 self.toastyView.alpha = 0.0
@@ -126,7 +121,7 @@ public class Toasty {
             } else if userStyle.animationDuration > LENGHT_SHORT {
                 userStyle.animationDuration = LENGHT_SHORT
             }
-            if userStyle.messageNumberOfLines > 5{
+            if userStyle.messageNumberOfLines > 5 {
                 userStyle.messageNumberOfLines = 5
             }
             self.style = userStyle
@@ -135,6 +130,10 @@ public class Toasty {
         }
     }
     //////////////////
+    
+    public func killToast() {
+        self.toastyView.removeFromSuperview()
+    }
 }
 
 public struct ToastyStyle {
