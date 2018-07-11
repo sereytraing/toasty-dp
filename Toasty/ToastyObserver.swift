@@ -12,8 +12,8 @@ protocol PropertyObserver : class {
     func willChange(propertyName: String, newPropertyValue: Bool)
 }
 
+// MARK: - OBSERVER
 final class ToastyObserver {
-    
     weak var observer:PropertyObserver?
     private let propertyNameToasty = "toasty"
     

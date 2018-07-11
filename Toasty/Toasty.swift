@@ -35,12 +35,18 @@ import UIKit
         No idea of use
         Project -> in ToastyStrategy.swift, manage upper/lowercase (useless imo)
  
+ - Adapter(Couleur): Adapt hexcolor to UIColor
+    -> Extension d'UIColor, func for using func
+ 
+ - Delegate
+ 
+ Inspired by : https://github.com/ochococo/Design-Patterns-In-Swift
+ 
  */
 
 
 
 public class Toasty {
-    
     public static let shared = Toasty()
     let defaults = UserDefaults.standard
     var observerInstance = Observer()
@@ -58,10 +64,12 @@ public class Toasty {
     let MESSAGE_AND_IMAGE = 2;
     let SIMPLE_IMAGE = 3;
     
-    public static func showToast(viewController: UIViewController, withSimpleMessage message: String?, toastyStyle: ToastyStyle? = nil, length: Double? = nil, isDebug: UIColor? = nil) {
-        self.shared.checkToastyStyle(style: toastyStyle, length: length, isDebug: isDebug)
+    // MARK: - FACADE
+    public static func showToast(viewController: UIViewController, withSimpleMessage message: String?, toastyStyle: ToastyStyle? = nil, length: Double? = nil) {
+        self.shared.checkToastyStyle(style: toastyStyle, length: length)
         
         self.shared.initToastyView(forToast: self.shared.SIMPLE_MESSAGE, viewController)
+        // MARK: - NON NULL
         if let message = message {
             self.shared.createMessage(message, forToast: self.shared.SIMPLE_MESSAGE, with: nil)
         } else {
@@ -70,19 +78,13 @@ public class Toasty {
         self.shared.enableToast(viewController)
     }
     
-    public static func showToast(viewController: UIViewController, withMessage message: String?, andImage image: UIImage?, toastyStyle: ToastyStyle? = nil, length: Double? = nil, isDebug: UIColor? = nil) {
+    public static func showToast(viewController: UIViewController, withMessage message: String?, andImage image: UIImage?, toastyStyle: ToastyStyle? = nil, length: Double? = nil) {
         var imageView: UIImageView?
-        self.shared.checkToastyStyle(style: toastyStyle, length: length, isDebug: isDebug)
-        
+        self.shared.checkToastyStyle(style: toastyStyle, length: length)
         self.shared.initToastyView(forToast: self.shared.MESSAGE_AND_IMAGE, viewController)
-        
         if let image = image {
             imageView = self.shared.createImage(image, forToast: self.shared.SIMPLE_MESSAGE)
-        } else {
-            //imageView = self.shared.createImage(NO_IMAGE, forToast: SIMPLE_MESSAGE)
-            
         }
-        
         if let message = message {
             self.shared.createMessage(message, forToast: self.shared.MESSAGE_AND_IMAGE, with: imageView)
         } else {
@@ -92,13 +94,11 @@ public class Toasty {
         self.shared.enableToast(viewController)
     }
     
-    public static func showToast(viewController: UIViewController, withSimpleImage image: UIImage?, toastyStyle: ToastyStyle? = nil, length: Double? = nil, isDebug: UIColor? = nil) {
-        self.shared.checkToastyStyle(style: toastyStyle, length: length, isDebug: isDebug)
+    public static func showToast(viewController: UIViewController, withSimpleImage image: UIImage?, toastyStyle: ToastyStyle? = nil, length: Double? = nil) {
+        self.shared.checkToastyStyle(style: toastyStyle, length: length)
         self.shared.initToastyView(forToast: self.shared.SIMPLE_IMAGE, viewController)
         if let image = image {
             _ = self.shared.createImage(image, forToast: self.shared.SIMPLE_IMAGE)
-        } else {
-            //self.shared.createImage(NO_IMAGE, forToast: self.shared.SIMPLE_IMAGE)
         }
         self.shared.enableToast(viewController)
     }
@@ -199,19 +199,13 @@ public class Toasty {
                 self.toastyObserver.isHidden = true
             })
         }
-        
     }
     
-    ///// STYLE //////
-    private func checkToastyStyle(style: ToastyStyle?, length : Double?, isDebug : UIColor?){
+    private func checkToastyStyle(style: ToastyStyle?, length : Double?){
         if var userStyle = style {
             if let userLength = length {
                 userStyle.animationDuration = userLength
             }
-            if let userIsDebug = isDebug {
-                userStyle.backgroundColor = userIsDebug
-            }
-            
             if userStyle.animationDuration > LENGHT_LONG {
                 userStyle.animationDuration = LENGHT_LONG
             } else if userStyle.animationDuration > LENGHT_SHORT {
@@ -227,11 +221,12 @@ public class Toasty {
     }
     //////////////////
     
+    // MARK: - COMMAND ? Peut etre
     public func killToast() {
         self.toastyView.removeFromSuperview()
     }
     
-    //Memento
+    // MARK: - MEMENTO
     public func saveMessage(nameSave: String, message: String) {
         self.defaults.set(message, forKey: nameSave)
         self.defaults.synchronize()
@@ -239,5 +234,10 @@ public class Toasty {
     
     public func loadMessage(nameSave: String) -> String? {
         return self.defaults.string(forKey: nameSave)
+    }
+    
+    // MARK: - ADAPTER
+    public static func colorHex(color: Int) -> UIColor {
+        return UIColor(rgb: color)
     }
 }

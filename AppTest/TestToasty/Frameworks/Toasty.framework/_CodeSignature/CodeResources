@@ -6,11 +6,11 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		T1aHKwTF/2pN3WiLa2vnMgkqvKU=
+		J++2lAVbdqfWf3h9K6P6i+kKgqk=
 		</data>
 		<key>Headers/Toasty-Swift.h</key>
 		<data>
-		VcEiNICXBaNncXXby6agQqFzbwk=
+		FfesO+ubfJ0EEXHzGKSc0vtXKGE=
 		</data>
 		<key>Headers/Toasty.h</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		SYJLrT+tLBnsyMx8nFSbEt7uB3I=
+		ZpBrp9/WzuU/2BFYEUQsKfdAz7w=
 		</data>
 		<key>Modules/Toasty.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Modules/Toasty.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		xY+oR9pR36k7Iz9oPcjGA6MTkgc=
+		/DxyAs++myPJl6lg6xIWocW/s78=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -39,22 +39,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			T1aHKwTF/2pN3WiLa2vnMgkqvKU=
+			J++2lAVbdqfWf3h9K6P6i+kKgqk=
 			</data>
 			<key>hash2</key>
 			<data>
-			Y21kAjSSNXjyGTDsS7+op0rwHqkDaJmgrXlUU7t2stw=
+			Un82GN/1WGREy0qtm0kc0OgpiYkf2FgfyCahOvxOXy8=
 			</data>
 		</dict>
 		<key>Headers/Toasty-Swift.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			VcEiNICXBaNncXXby6agQqFzbwk=
+			FfesO+ubfJ0EEXHzGKSc0vtXKGE=
 			</data>
 			<key>hash2</key>
 			<data>
-			uogZtaPNUhqhiVqGxlvHiflYKtqv9+wjAalPdN2ekAo=
+			vkyDQapTvq+JNsOvYv89dcP5gv/Dk81A39eKWceeKds=
 			</data>
 		</dict>
 		<key>Headers/Toasty.h</key>
@@ -83,11 +83,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xY+oR9pR36k7Iz9oPcjGA6MTkgc=
+			/DxyAs++myPJl6lg6xIWocW/s78=
 			</data>
 			<key>hash2</key>
 			<data>
-			iD6nw7snpIYcKHG/1otB875U1KkhtNk8Cm4YTinp6yI=
+			mAeBdRTk1h3HtYmCZ9IFUrnmvqb/3K25i68e5FjI40k=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

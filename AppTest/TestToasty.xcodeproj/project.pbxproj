@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F5990E620C4508D00981ACA /* Toasty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5990E120C41C3700981ACA /* Toasty.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		0F5990E720C4508D00981ACA /* Toasty.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5990E120C41C3700981ACA /* Toasty.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0F5990EA20C450CB00981ACA /* Toasty.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0F5990E120C41C3700981ACA /* Toasty.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0FA6567E20E3D37900072725 /* Toasty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA6567D20E3D37900072725 /* Toasty.framework */; };
+		0FA6567F20E3D38900072725 /* Toasty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA6567D20E3D37900072725 /* Toasty.framework */; };
+		0FA6568020E3D38900072725 /* Toasty.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA6567D20E3D37900072725 /* Toasty.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0FC57B0F200CFB5E00B7761D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC57B0E200CFB5E00B7761D /* AppDelegate.swift */; };
 		0FC57B11200CFB5E00B7761D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC57B10200CFB5E00B7761D /* ViewController.swift */; };
 		0FC57B14200CFB5E00B7761D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FC57B12200CFB5E00B7761D /* Main.storyboard */; };
@@ -24,7 +24,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0F5990E720C4508D00981ACA /* Toasty.framework in Embed Frameworks */,
+				0FA6568020E3D38900072725 /* Toasty.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -35,14 +35,13 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0F5990EA20C450CB00981ACA /* Toasty.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0F5990E120C41C3700981ACA /* Toasty.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Toasty.framework; sourceTree = "<group>"; };
+		0FA6567D20E3D37900072725 /* Toasty.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Toasty.framework; sourceTree = "<group>"; };
 		0FC57B0B200CFB5E00B7761D /* TestToasty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestToasty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FC57B0E200CFB5E00B7761D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FC57B10200CFB5E00B7761D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,7 +56,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F5990E620C4508D00981ACA /* Toasty.framework in Frameworks */,
+				0FA6567F20E3D38900072725 /* Toasty.framework in Frameworks */,
+				0FA6567E20E3D37900072725 /* Toasty.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,7 +67,7 @@
 		0F5990E520C4506300981ACA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0F5990E120C41C3700981ACA /* Toasty.framework */,
+				0FA6567D20E3D37900072725 /* Toasty.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";

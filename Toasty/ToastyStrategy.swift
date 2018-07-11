@@ -12,6 +12,7 @@ public protocol ToastyPrintStrategy {
     func print(_ string: String) -> String
 }
 
+// MARK: - Strategy
 public class ToastyPrint {
     
     public let strategy: ToastyPrintStrategy

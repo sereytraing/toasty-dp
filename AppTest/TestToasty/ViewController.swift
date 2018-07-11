@@ -48,7 +48,7 @@ class ViewController: UIViewController {
             builder.animationDuration = 10.0
             builder.backgroundColor = .yellow
             builder.cornerRadius = 20.0
-            builder.messageColor = .green
+            builder.messageColor = Toasty.colorHex(color: 0xFF0000)
         }
         
         let style: ToastyStyle = ToastyStyle(builder: toastyStyleBuilder)
